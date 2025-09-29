@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holan Kristian Samosir - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        .typing-animation { 
+            border-right: 2px solid #fbbf24; 
+            animation: blink 1s infinite; 
+        }
+        @keyframes blink { 0%, 50% { border-color: transparent; } 51%, 100% { border-color: #fbbf24; } }
+        
+        .typing-cursor {
+            border-right: 3px solid #60a5fa;
+            animation: cursorBlink 1s infinite;
+        }
+        @keyframes cursorBlink {
+            0%, 50% { border-color: #60a5fa; }
+            51%, 100% { border-color: transparent; }
+        }
+        
+        /* Enhanced Name Styling */
+        .particle {
+            animation: particleFloat 4s ease-in-out infinite;
+        }
+        .particle-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        .particle-2 {
+            top: 60%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+        .particle-3 {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+        .particle-4 {
+            top: 40%;
+            right: 25%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translateY(-20px) translateX(10px) scale(1.2);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-10px) translateX(-15px) scale(0.8);
+                opacity: 0.4;
+            }
+            75% { 
+                transform: translateY(-30px) translateX(5px) scale(1.1);
+                opacity: 0.7;
+            }
+        }
+        
+        /* Enhanced text effects */
+        .enhanced-text-glow {
+            text-shadow: 
+                0 0 10px rgba(96, 165, 250, 0.5),
+                0 0 20px rgba(147, 51, 234, 0.3),
+                0 0 30px rgba(96, 165, 250, 0.2);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            from { 
+                text-shadow: 
+                    0 0 10px rgba(96, 165, 250, 0.5),
+                    0 0 20px rgba(147, 51, 234, 0.3),
+                    0 0 30px rgba(96, 165, 250, 0.2);
+            }
+            to { 
+                text-shadow: 
+                    0 0 20px rgba(96, 165, 250, 0.8),
+                    0 0 30px rgba(147, 51, 234, 0.6),
+                    0 0 40px rgba(96, 165, 250, 0.4);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(40px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .fade-in { animation: fadeIn 0.8s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .skill-bar { transition: width 2s ease-in-out; }
+        
+        /* New Hero Animations */
+        .letter-bounce {
+            animation: letterBounce 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+        @keyframes letterBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .text-gradient {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 3s ease-in-out infinite;
+        }
+        @keyframes gradientText {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(45deg); }
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 30px #fbbf24;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 30px #fbbf24; }
+            to { text-shadow: 0 0 20px #fbbf24, 0 0 30px #fbbf24, 0 0 40px #fbbf24; }
+        }
+        
+        .slide-up {
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating-circle {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+        
+        .avatar-glow {
+            animation: avatarGlow 3s ease-in-out infinite;
+        }
+        @keyframes avatarGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+            50% { box-shadow: 0 0 40px rgba(255,255,255,0.6), 0 0 60px rgba(102,126,234,0.4); }
+        }
+        
+        .name-animation {
+            animation: nameEntrance 2s ease-out;
+        }
+        @keyframes nameEntrance {
+            0% { opacity: 0; transform: scale(0.5) rotateY(180deg); }
+            50% { opacity: 0.7; transform: scale(1.1) rotateY(90deg); }
+            100% { opacity: 1; transform: scale(1) rotateY(0deg); }
+        }
+        
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-reveal-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-reveal-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .scroll-reveal-rotate {
+            opacity: 0;
+            transform: rotate(-10deg) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-reveal-rotate.revealed {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        
+        /* Parallax Effect */
+        .parallax-bg {
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+            z-index: 9999;
+            transition: width 0.1s ease-out;
+        }
+        
+        /* Floating Elements */
+        .float-on-scroll {
+            transition: transform 0.3s ease-out;
+        }
+        
+        /* Section Dividers */
+        .section-divider {
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 1s ease-out;
+        }
+        
+        .section-divider.revealed {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-md z-50 shadow-sm border-b border-gray-700">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-white">Portfolio</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-blue-400 transition-colors">Beranda</a>
+                    <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">Tentang</a>
+                    <a href="#experience" class="text-gray-300 hover:text-blue-400 transition-colors">Pendidikan</a>
+                    <a href="#work-experience" class="text-gray-300 hover:text-blue-400 transition-colors">Pengalaman</a>
+                    <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors">Kontak</a>
+                </div>
+                <button id="mobile-menu" class="md:hidden text-gray-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center text-white relative overflow-hidden" style="background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 30%, #16213e 70%, #0f3460 100%);">
+        <!-- Sophisticated Background Elements -->
+        <div class="absolute inset-0">
+            <!-- Geometric Grid -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="grid grid-cols-12 gap-4 h-full">
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                    <div class="border-r border-white/20"></div>
+                </div>
+            </div>
+            
+            <!-- Floating Geometric Shapes -->
+            <div class="absolute top-20 left-10 w-64 h-64 border border-blue-400/20 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-48 h-48 border border-purple-400/20 rotate-45 animate-bounce" style="animation-duration: 3s;"></div>
+            <div class="absolute top-1/2 left-20 w-32 h-32 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg rotate-12 animate-pulse"></div>
+            <div class="absolute bottom-1/3 left-1/4 w-20 h-20 border-2 border-yellow-400/30 rounded-full"></div>
+            <div class="absolute top-1/4 right-1/4 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-transparent rounded-full"></div>
+            
+            <!-- Subtle Light Rays -->
+            <div class="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-blue-400/30 via-transparent to-transparent transform -translate-x-1/2"></div>
+            <div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400/20 to-transparent transform -translate-y-1/2"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Profile Photo -->
+                <div class="order-2 lg:order-1 flex justify-center lg:justify-start">
+                    <div class="relative">
+                        <!-- Photo Container with Professional Frame -->
+                        <div class="relative w-80 h-80 lg:w-96 lg:h-96">
+                            <!-- Outer Glow Ring -->
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 p-1 animate-pulse">
+                                <div class="w-full h-full rounded-full bg-gray-900"></div>
+                            </div>
+                            
+                            <!-- Photo Placeholder -->
+                            <div class="absolute inset-2 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 border-4 border-gray-600 flex items-center justify-center overflow-hidden shadow-2xl">
+                                <!-- Placeholder for actual photo -->
+                                <div class="w-full h-full bg-gradient-to-br from-gray-600 to-gray-700 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <div class="text-6xl mb-4 opacity-50"></div>
+                                        <p class="text-gray-400 text-sm font-medium"><img src="quality_restoration_20250730073800609.png"></p>
+                                        <p class="text-gray-500 text-xs mt-1"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Decorative Corner Elements -->
+                            <div class="absolute -top-4 -left-4 w-8 h-8 border-l-2 border-t-2 border-blue-400"></div>
+                            <div class="absolute -top-4 -right-4 w-8 h-8 border-r-2 border-t-2 border-purple-400"></div>
+                            <div class="absolute -bottom-4 -left-4 w-8 h-8 border-l-2 border-b-2 border-purple-400"></div>
+                            <div class="absolute -bottom-4 -right-4 w-8 h-8 border-r-2 border-b-2 border-blue-400"></div>
+                        </div>
+                        
+                        <!-- Professional Badge -->
+                        <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+                            <div class="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 rounded-full border border-blue-400/50 shadow-lg">
+                                <span class="text-white font-semibold text-sm tracking-wider">PROFESSIONAL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="order-1 lg:order-2 text-center lg:text-left">
+
+
+                    <!-- Name with Typing Animation -->
+                    <div class="mb-8">
+                        <!-- Typing Animation Container with Enhanced Styling -->
+                        <div class="mb-6 relative">
+                            <!-- Background Glow Effect -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 blur-3xl rounded-full transform scale-150 opacity-50"></div>
+                            
+                            <!-- Main Name Text -->
+                            <div class="relative z-10">
+                                <span id="typing-name" class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black bg-gradient-to-r from-blue-300 via-purple-300 to-blue-400 bg-clip-text text-transparent typing-cursor drop-shadow-2xl"></span>
+                            </div>
+                            
+                            <!-- Animated Particles -->
+                            <div class="absolute inset-0 pointer-events-none">
+                                <div class="particle particle-1 absolute w-2 h-2 bg-blue-400 rounded-full opacity-60"></div>
+                                <div class="particle particle-2 absolute w-1 h-1 bg-purple-400 rounded-full opacity-40"></div>
+                                <div class="particle particle-3 absolute w-1.5 h-1.5 bg-blue-300 rounded-full opacity-50"></div>
+                                <div class="particle particle-4 absolute w-1 h-1 bg-purple-300 rounded-full opacity-30"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Enhanced Elegant Divider -->
+                        <div id="divider" class="flex items-center justify-center lg:justify-start mb-6 opacity-0 transform translate-y-10">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-16 h-px bg-gradient-to-r from-transparent via-blue-400 to-blue-500"></div>
+                                <div class="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full animate-pulse"></div>
+                                <div class="w-12 h-px bg-gradient-to-r from-blue-500 to-purple-500"></div>
+                                <div class="w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                                <div class="w-16 h-px bg-gradient-to-l from-transparent via-purple-400 to-purple-500"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Description -->
+                    <div class="mb-10 space-y-4">
+                    </div>
+
+                    <!-- Professional Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                        <a href="#about" class="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            <span class="relative z-10">Lihat Portfolio</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </a>
+                        <a href="#contact" class="group border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 hover:text-gray-900 transition-all duration-300 relative overflow-hidden">
+                            <span class="relative z-10">Hubungi Saya</span>
+                            <div class="absolute inset-0 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl font-bold text-white mb-4">Tentang Saya</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto section-divider"></div>
+            </div>
+            <div class="max-w-4xl mx-auto text-center space-y-6">
+                <p class="text-lg text-gray-300 leading-relaxed scroll-reveal stagger-1">
+                    Halo! Perkenalkan saya Holan Kristian Samosir, saya adalah seorang mahasiswa Universitas Negeri Medan yang sangat tertarik dengan dunia IT. Walaupun saya belum memiliki pengalaman dan prestasi yang bisa saya tunjukkan, tetapi saya selalu semangat untuk belajar dan selalu berusaha mengembangkan diri.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed scroll-reveal stagger-2">
+                    Tujuan saya adalah mengembangkan keterampilan saya dibidang IT khususnya dibidang web developer. Saya juga percaya bahwa setiap proses belajar merupakan bekal untuk masa depan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl font-bold text-white mb-4">Riwayat Pendidikan</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto section-divider"></div>
+            </div>
+            <div class="space-y-8">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg card-hover border border-gray-700 scroll-reveal-left stagger-1">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-orange-900/50 p-3 rounded-full border border-orange-700">
+                            <div class="text-2xl">🏛️</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Sekolah Dasar (SD)</h3>
+                            <p class="text-orange-400 font-semibold mb-2">SD 060858 • 2013 - 2019</p>
+                            <p class="text-gray-300 mb-4">Memulai perjalanan pendidikan formal di SD 060858 dan membangun dasar-dasar pengetahuan yang solid.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-orange-900/30 text-orange-300 px-3 py-1 rounded-full text-sm border border-orange-700">Lulus SD</span>
+                                <span class="bg-orange-900/30 text-orange-300 px-3 py-1 rounded-full text-sm border border-orange-700">Fondasi Pendidikan</span>
+                                <span class="bg-orange-900/30 text-orange-300 px-3 py-1 rounded-full text-sm border border-orange-700">Pembelajaran Dasar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg card-hover border border-gray-700 scroll-reveal-right stagger-2">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-purple-900/50 p-3 rounded-full border border-purple-700">
+                            <div class="text-2xl">📚</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Sekolah Menengah Pertama (SMP)</h3>
+                            <p class="text-purple-400 font-semibold mb-2">SMPN 27 Medan • 2019 - 2022</p>
+                            <p class="text-gray-300 mb-4">Menyelesaikan pendidikan menengah pertama dengan baik dan membangun fondasi akademik yang kuat.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-900/30 text-purple-300 px-3 py-1 rounded-full text-sm border border-purple-700">Lulus SMP</span>
+                                <span class="bg-purple-900/30 text-purple-300 px-3 py-1 rounded-full text-sm border border-purple-700">Pengembangan Karakter</span>
+                                <span class="bg-purple-900/30 text-purple-300 px-3 py-1 rounded-full text-sm border border-purple-700">Prestasi Belajar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg card-hover border border-gray-700 scroll-reveal-left stagger-3">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-green-900/50 p-3 rounded-full border border-green-700">
+                            <div class="text-2xl">🏫</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Sekolah Menengah Atas (SMA)</h3>
+                            <p class="text-green-400 font-semibold mb-2">SMA Negeri 1 Percut Sei Tuan • 2022 - 2025</p>
+                            <p class="text-gray-300 mb-4">Menyelesaikan pendidikan menengah atas dengan fokus pada pengembangan kemampuan akademik dan soft skills.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-900/30 text-green-300 px-3 py-1 rounded-full text-sm border border-green-700">Lulus SMA</span>
+                                <span class="bg-green-900/30 text-green-300 px-3 py-1 rounded-full text-sm border border-green-700">Prestasi Akademik</span>
+                                <span class="bg-green-900/30 text-green-300 px-3 py-1 rounded-full text-sm border border-green-700">Kegiatan Ekstrakurikuler</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg card-hover border border-gray-700 scroll-reveal-right stagger-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-blue-900/50 p-3 rounded-full border border-blue-700">
+                            <div class="text-2xl">🎓</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Perguruan Tinggi</h3>
+                            <p class="text-blue-400 font-semibold mb-2">Universitas Negeri Medan • 2025 - Sekarang</p>
+                            <p class="text-gray-300 mb-4">Sedang menempuh pendidikan tinggi untuk mengembangkan pengetahuan dan keterampilan profesional.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full text-sm border border-blue-700">Mahasiswa Aktif</span>
+                                <span class="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full text-sm border border-blue-700">Pembelajaran Berkelanjutan</span>
+                                <span class="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full text-sm border border-blue-700">Pengembangan Diri</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="work-experience" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl font-bold text-white mb-4">Pengalaman</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto section-divider"></div>
+            </div>
+            <div class="space-y-8">
+                <!-- Paduan Suara SMA -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-lg card-hover border border-gray-600 scroll-reveal-scale stagger-1">
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <!-- Content Section -->
+                        <div class="lg:col-span-2">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-900/50 p-3 rounded-full border border-blue-700">
+                                    <div class="text-2xl">🎵</div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-white mb-2">Anggota Paduan Suara</h3>
+                                    <p class="text-blue-400 font-semibold mb-2">SMA Negeri 1 Percut Sei Tuan • 2022 - 2025</p>
+                                    <p class="text-gray-300 mb-4">Aktif dalam kegiatan paduan suara sekolah, berpartisipasi dalam berbagai pertunjukan dan kompetisi musik tingkat sekolah dan regional.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full text-sm border border-blue-700">Seni Musik</span>
+                                        <span class="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full text-sm border border-blue-700">Kerjasama Tim</span>
+                                        <span class="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full text-sm border border-blue-700">Pertunjukan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo Evidence Section -->
+                        <div class="lg:col-span-1">
+                            <div class="bg-gray-800 p-4 rounded-xl border border-gray-600">
+                                <h4 class="text-sm font-semibold text-gray-300 mb-3 flex items-center">
+                                    <span class="text-lg mr-2">📸</span>
+                                    Bukti Foto
+                                </h4>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <!-- Foto 1 -->
+                                    <div class="aspect-video bg-gray-700 rounded-lg border-2 border-dashed border-gray-600 flex items-center justify-center cursor-pointer hover:bg-gray-600 transition-colors">
+                                        <div class="text-center"><img src="WhatsApp Image 2025-09-28 at 09.37.22.jpeg">
+                                            <div class="text-3xl mb-2"></div>
+                                            <p class="text-xs text-gray-400 font-medium"></p>
+                                            <p class="text-xs text-gray-500"></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Foto 2 -->
+                                    <div class="aspect-video bg-gray-700 rounded-lg border-2 border-dashed border-gray-600 flex items-center justify-center cursor-pointer hover:bg-gray-600 transition-colors"><img src="WhatsApp Image 2025-09-28 at 09.37.23.jpeg">
+                                        <div class="text-center">
+                                            <div class="text-3xl mb-2"></div>
+                                            <p class="text-xs text-gray-400 font-medium"></p>
+                                            <p class="text-xs text-gray-500"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2 text-center"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PMR -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-lg card-hover border border-gray-600 scroll-reveal-rotate stagger-2">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-900/50 p-3 rounded-full border border-red-700">
+                            <div class="text-2xl">🏥</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Anggota PMR (Palang Merah Remaja)</h3>
+                            <p class="text-red-400 font-semibold mb-2">SMA Negeri 1 Percut Sei Tuan • 2022</p>
+                            <p class="text-gray-300 mb-4">Aktif dalam kegiatan PMR sekolah, belajar pertolongan pertama, donor darah, dan membantu kegiatan kesehatan sekolah.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-red-900/30 text-red-300 px-3 py-1 rounded-full text-sm border border-red-700">Pertolongan Pertama</span>
+                                <span class="bg-red-900/30 text-red-300 px-3 py-1 rounded-full text-sm border border-red-700">Kepedulian Sosial</span>
+                                <span class="bg-red-900/30 text-red-300 px-3 py-1 rounded-full text-sm border border-red-700">Teamwork</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Organisasi Remaja Gereja -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-lg card-hover border border-gray-600 scroll-reveal-scale stagger-3">
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <!-- Content Section -->
+                        <div class="lg:col-span-2">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-yellow-900/50 p-3 rounded-full border border-yellow-700">
+                                    <div class="text-2xl">⛪</div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-white mb-2">Anggota Organisasi Remaja Gereja</h3>
+                                    <p class="text-yellow-400 font-semibold mb-2">Gereja Lokal • 2025 - Sekarang</p>
+                                    <p class="text-gray-300 mb-4">Aktif dalam kegiatan remaja gereja, membantu mengorganisir acara, pelayanan sosial, dan kegiatan pengembangan karakter remaja.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-yellow-900/30 text-yellow-300 px-3 py-1 rounded-full text-sm border border-yellow-700">Kepemimpinan</span>
+                                        <span class="bg-yellow-900/30 text-yellow-300 px-3 py-1 rounded-full text-sm border border-yellow-700">Pelayanan Sosial</span>
+                                        <span class="bg-yellow-900/30 text-yellow-300 px-3 py-1 rounded-full text-sm border border-yellow-700">Event Organizing</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo Evidence Section -->
+                        <div class="lg:col-span-1">
+                            <div class="bg-gray-800 p-4 rounded-xl border border-gray-600">
+                                <h4 class="text-sm font-semibold text-gray-300 mb-3 flex items-center">
+                                    <span class="text-lg mr-2">📸</span>
+                                    Bukti Foto
+                                </h4>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <!-- Foto 1 -->
+                                    <div class="aspect-video bg-gray-700 rounded-lg border-2 border-dashed border-gray-600 flex items-center justify-center cursor-pointer hover:bg-gray-600 transition-colors">
+                                        <div class="text-center">
+                                            <div class="text-3xl mb-2"></div>
+                                            <p class="text-xs text-gray-400 font-medium"><img src="WhatsApp Image 2025-09-28 at 09.37.24 (1).jpeg"></p>
+                                            <p class="text-xs text-gray-500"></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Foto 2 -->
+                                    <div class="aspect-video bg-gray-700 rounded-lg border-2 border-dashed border-gray-600 flex items-center justify-center cursor-pointer hover:bg-gray-600 transition-colors">
+                                        <div class="text-center">
+                                            <div class="text-3xl mb-2"></div>
+                                            <p class="text-xs text-gray-400 font-medium"><img src="WhatsApp Image 2025-09-28 at 09.37.24 (2).jpeg"></p>
+                                            <p class="text-xs text-gray-500"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2 text-center">Klik untuk menambah foto kegiatan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl font-bold text-white mb-4">Mari Berkolaborasi</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-4 section-divider"></div>
+                <p class="text-xl text-gray-300 scroll-reveal stagger-1">Saya terbuka untuk peluang baru dan kolaborasi yang menarik</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8 scroll-reveal-left">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-900/50 p-4 rounded-full border border-blue-700">
+                            <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Email</h3>
+                            <p class="text-gray-300">holan.samosir@email.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-green-900/50 p-4 rounded-full border border-green-700">
+                            <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Telepon</h3>
+                            <p class="text-gray-300">+62 812-3456-7890</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-900/50 p-4 rounded-full border border-blue-700">
+                            <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">LinkedIn</h3>
+                            <p class="text-gray-300">linkedin.com/in/holankristiansamosir</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-red-900/50 p-4 rounded-full border border-red-700">
+                            <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Lokasi</h3>
+                            <p class="text-gray-300">Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 scroll-reveal-right">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-2">Nama</label>
+                            <input type="text" class="w-full px-4 py-3 bg-gray-900 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400" placeholder="Nama Anda">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 bg-gray-900 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400" placeholder="email@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-2">Pesan</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-900 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400" placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="text-3xl font-bold mb-4">Holan Kristian Samosir</div>
+            <p class="text-gray-400 mb-8">Profesional yang berdedikasi untuk menciptakan dampak positif</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="bg-blue-600 p-3 rounded-full hover:bg-blue-700 transition-colors">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="#" class="bg-blue-600 p-3 rounded-full hover:bg-blue-700 transition-colors">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="#" class="bg-blue-600 p-3 rounded-full hover:bg-blue-700 transition-colors">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-gray-400">&copy; 2024 Holan Kristian Samosir. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            // Simple mobile menu implementation
+            alert('Menu mobile akan ditampilkan di sini');
+        });
+
+        // Hero Typing Animation
+        const typingName = document.getElementById('typing-name');
+        const divider = document.getElementById('divider');
+        
+        const nameText = "Hi, Saya Holan Kristian Samosir";
+        let nameIndex = 0;
+        
+        function typeName() {
+            if (nameIndex < nameText.length) {
+                typingName.textContent = nameText.substring(0, nameIndex + 1);
+                nameIndex++;
+                setTimeout(typeName, 100);
+            } else {
+                // Remove cursor and add glow effect
+                setTimeout(() => {
+                    typingName.classList.remove('typing-cursor');
+                    typingName.classList.add('enhanced-text-glow');
+                    
+                    // Animate divider after typing is complete
+                    setTimeout(() => {
+                        divider.classList.add('fade-in-up');
+                    }, 500);
+                }, 1000);
+            }
+        }
+        
+        // Start typing animation after page load
+        setTimeout(typeName, 500);
+
+
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            if (name && email && message) {
+                alert('Terima kasih! Pesan Anda telah dikirim. Saya akan segera menghubungi Anda kembali.');
+                this.reset();
+            } else {
+                alert('Mohon lengkapi semua field yang diperlukan.');
+            }
+        });
+
+        // Scroll Progress Bar
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollProgress);
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll reveal elements
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale, .scroll-reveal-rotate, .section-divider').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // Parallax Effect for Background Elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Smooth scroll enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed header
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add floating effect to elements on scroll
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const floatingElements = document.querySelectorAll('.float-on-scroll');
+            
+            floatingElements.forEach((element, index) => {
+                const speed = 0.1 + (index * 0.05);
+                const yPos = -(scrollY * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Enhanced card hover effects
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9867041f017586fb',t:'MTc1OTEwMjA5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
